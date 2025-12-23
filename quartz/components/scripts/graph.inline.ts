@@ -88,6 +88,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     focusOnHover,
     enableRadial,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
+  // HIDE TAGS
+  showTags = false
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
     Object.entries<ContentDetails>(await fetchData).map(([k, v]) => [
@@ -196,6 +198,13 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   // calculate color
   const color = (d: NodeData) => {
     const isCurrent = d.id === slug
+
+    // PERSONALIZED COLORING SCHEME
+    if (d.id === "tags/hubLvl0") {return "#e82e2e"}
+    if (d.id === "tags/hubLvl1") {return "#51d930"}
+    if (d.id === "tags/hubLvl2") {return "#3041d9"}
+    if (d.id === "tags/hubLvl3") {return "#e0c724"}
+
     if (isCurrent) {
       return computedStyleMap["--secondary"]
     } else if (visited.has(d.id) || d.id.startsWith("tags/")) {
