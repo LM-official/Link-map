@@ -13,6 +13,3 @@ each node has type tags in [documentary, guide, tool]
 [[0_MATH_LOGIC]]
 [[0_SOCIETY_HISTORY]]
 [[0_ARTS_MEDIA]]
-
----
-[[README]]
