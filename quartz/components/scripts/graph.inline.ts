@@ -200,15 +200,16 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     const isCurrent = d.id === slug
 
     // PERSONALIZED COLORING SCHEME
-    if (d.id.includes("tags/hubLvl0")) {return "#e82e2e"}
-    if (d.id.includes("tags/hubLvl1")) {return "#51d930"}
-    if (d.id.includes("tags/hubLvl2")) {return "#3041d9"}
-    if (d.id.includes("tags/hubLvl3")) {return "#e0c724"}
+    const hasTag = (tag: string) => d.tags.some(t => t === tag || t === `tags/${tag}`)
+    if (hasTag("tags/hubLvl0")) {return "#e82e2e"}
+    if (hasTag("tags/hubLvl1")) {return "#51d930"}
+    if (hasTag("tags/hubLvl2")) {return "#3041d9"}
+    if (hasTag("tags/hubLvl3")) {return "#e0c724"}
 
     if (isCurrent) {
       return computedStyleMap["--secondary"]
     } else if (visited.has(d.id) || d.id.startsWith("tags/")) {
-      return computedStyleMap["--tertiary"]
+      return computedStyleMap["--gray"]
     } else {
       return computedStyleMap["--gray"]
     }
