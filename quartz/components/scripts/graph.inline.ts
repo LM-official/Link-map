@@ -201,10 +201,10 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
     // PERSONALIZED COLORING SCHEME
     const hasTag = (tag: string) => d.tags.some(t => t.toLowerCase() === tag.toLowerCase())
-    if (hasTag("hublvl0")) {return "#e82e2e"}
-    if (hasTag("hublvl1")) {return "#51d930"}
-    if (hasTag("hublvl2")) {return "#3041d9"}
-    if (hasTag("hublvl3")) {return "#e0c724"}
+    if (hasTag("hublvl0")) return "#F53422"
+    if (hasTag("hublvl1")) return "#44F448"
+    if (hasTag("hublvl2")) return "#4E92F4"
+    if (hasTag("hublvl3")) return "#F5E435"
 
     if (isCurrent) {
       return computedStyleMap["--secondary"]
