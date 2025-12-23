@@ -47,9 +47,9 @@ export const defaultContentPageLayout: PageLayout = {
       },
       globalGraph: {
         showTags: false,
-        centerForce: 0.2,
-        repelForce: 2.2,
-        linkDistance: 80,
+        centerForce: 0.6,
+        repelForce: 4.0,
+        linkDistance: 30,
         fontSize: 0.4,
       },
     }),
